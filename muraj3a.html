@@ -22,24 +22,75 @@
             }
 
             li {
-                margin: 5px 0 ;
+                text-align: left;
                 list-style: none;
-                transition: 1s ;
-                background: #eee;
+                margin: auto;
+                padding: 6px;
             }
-            
-            li:hover {
+
+            li button {
+                float: right;
+            }
+
+            .regester li {
+                background: rgb(255, 132, 132);
+            }
+
+            .vaxine li {
                 background: rgb(128, 251, 138);
             }
+
+            .vaxine li button {
+                background: rgb(255, 132, 132);
+            }
+
+            .missage {
+                color: red;
+            }
+
+            .persons li {
+                height: 67px;
+                box-shadow: 0px 7px 9px -6px;
+                font-size: 37px;
+                text-align: center;
+                line-height: 1.9;
+            }
+
+            .persons div {
+                width: 85px;
+                height: 68px;
+                overflow: hidden;
+                float: right;
+            }
             
+            .persons button {
+                float: left;
+                margin-top: 25px;
+            }
+
         </style>
     </head>
     <body>
         <div class="container">
-            <input type="text"/>
+            <h1>interface corona</h1>
+            <input type="text" id="Exercice-2" />
             <button onclick="Enregistrées()">regester</button>
-            <ul class="regester">regester</ul>
-            <ul class="vaxine">vaxine</ul>
+            <p class="missage"></p>
+            <ul class="regester">
+                regester
+            </ul>
+            <ul class="vaxine">
+                Vaccinées
+            </ul>
+        </div>
+
+        <hr />
+
+        <div class="container">
+            <input type="file" />
+            <input type="text" id="Exercice-3" />
+            <button onclick="poster()">poster</button>
+            <ul class="persons"></ul>
         </div>
 
         <script src="test.js"></script>
