@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .parent {
+                display: flex;
+            }
+
+            .show {
+                display: block;
+            }
+
+            .hide {
+                display: none;
+            }
+        </style>
+    </head>
+    <body
+        onload="abbi()"
+        style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        "
+    >
+        <input id="text" type="text" />
+        <div class="parent">
+            <button id="button" onclick="ajout()">Ajouter</button>
+            <button id="retur" onclick="retur()">retur</button>
+        </div>
+        Liste enregistre
+        <ul id="list_saved"></ul>
+        Liste vaciinee
+        <ul id="list_vacc"></ul>
+
+        <script defer src="update.js"></script>
+    </body>
+</html>
