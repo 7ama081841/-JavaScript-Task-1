@@ -21,11 +21,11 @@ function Enregistrées() {
 
     if (persones[persones.length - 1].satus === "Enregistrées") {
         missage.innerText = "";
-        regester.innerHTML += `<li id=" ${persones[persones.length - 1].id}"> ${
+        regester.innerHTML += `<li id="${persones[persones.length - 1].id}"> ${
             persones[persones.length - 1].id
-        } ${
-            persones[persones.length - 1].name
-        } <button onclick="check(event)">+</button> </li> `;
+        } ${persones[persones.length - 1].name} <button onclick="check('${
+            persones[persones.length - 1].id
+        }')">+</button> </li> `;
     }
 
     input.value = "";
@@ -34,21 +34,19 @@ function Enregistrées() {
     // console.log(persones[persones.length - 1]);
 }
 
-function check(event) {
-    let persone = event.target.parentElement.getAttribute("id");
-
+function check(persone) {
     persones[persone - 1].satus = "Vaccinées";
 
-    // console.log(persones[persone - 1]);
+    // console.log({ persone });
 
     if (persones[persone - 1].satus == "Vaccinées") {
-        Vaccinees.innerHTML += `<li id=" ${persones[persone - 1].id}"> 
+        Vaccinees.innerHTML += `<li id="${persones[persone - 1].id}"> 
         ${persones[persone - 1].id}
         ${
             persones[persone - 1].name
         } <button onclick="supprimer_1(event)">supprimer</button> </li> `;
 
-        event.target.parentElement.remove();
+        document.getElementById(persone).remove();
     }
 }
 
@@ -64,28 +62,25 @@ let text = document.querySelector("#Exercice-3");
 let persons = document.querySelector(".persons");
 let uploadImage = "";
 
-function poster() {
+async function poster() {
     if (text.value == "" || file.value == "") {
         return false;
     }
 
-    let reder = new FileReader();
-    reder.addEventListener("load", () => {
-        uploadImage = reder.result;
+    let reder = await new FileReader();
+    await reder.addEventListener("load", () => {
+        const uploadImage = reder.result;
+        console.log({ text: text.value });
+        persons.innerHTML += `<li id='ezfzejnfj'> ${text.value} <div> <img width="100%" heigth="100%" src="${uploadImage}" alt=""> </div> <button onclick="supprimer_2(event)" >supprimer</button> </li> `;
+        text.value = "";
 
-        persons.innerHTML += `<li> ${text.value} <div> <img src="${uploadImage}" alt=""> </div> <button onclick="supprimer_2(event)" >supprimer</button> </li> `;
+        // let li = document.querySelector(".persons li");
 
-        let li = document.querySelector(".persons li");
-
-        return li;
+        // return li;
     });
-    reder.readAsDataURL(file.files[0]);
+    await reder.readAsDataURL(file.files[0]);
 
     file.value = "";
-    
-    li.innerText = text.value;
-    
-    text.value = "";
 }
 
 function supprimer_2(event) {
