@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>newUpdate</title>
         <style>
             .parent {
                 display: flex;
@@ -24,13 +24,16 @@
                 align-items: center;
             }
 
+            #list_saved li div,
+            #list_vacc li div {
+                display: flex;
+                justify-content: space-between;
+            }
+
             #list_saved li div p {
                 width: 200px;
             }
 
-            /* ________________________________ */
-
-            
             #list_vacc li {
                 margin-bottom: 5px;
             }
@@ -45,10 +48,22 @@
                 width: 200px;
             }
 
+            .image {
+                height: 50px;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+
+            p {
+                padding-left: 10px;
+            }
         </style>
     </head>
     <body
-        onload="abbi()"
+        onload="aabi() "
         style="
             display: flex;
             justify-content: center;
@@ -56,17 +71,19 @@
             flex-direction: column;
         "
     >
-        <input type="file" id="file"/>
+        <input type="file" id="file" onchange="changeImage() " />
         <input id="text" type="text" />
         <div class="parent">
             <button id="button" onclick="ajout()">Ajouter</button>
-            <button id="retur" onclick="retur()">retur</button>
+        </div>
+        <div class="image">
+            <img id="setImage" src="" />
         </div>
         Liste enregistre
         <ul id="list_saved"></ul>
         Liste vaciinee
         <ul id="list_vacc"></ul>
 
-        <script defer src="update.js"></script>
+        <script src="newUpdate.js"></script>
     </body>
 </html>
